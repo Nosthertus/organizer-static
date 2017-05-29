@@ -1,0 +1,23 @@
+{
+  "name": "organizer-static",
+  "version": "0.1.0",
+  "description": "Static files for organizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nosthertus/organizer-static.git"
+  },
+  "author": "Nosthertus <nosthertus@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nosthertus/organizer-static/issues"
+  },
+  "homepage": "https://github.com/Nosthertus/organizer-static#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}
