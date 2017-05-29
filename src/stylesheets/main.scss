@@ -1,0 +1,91 @@
+$main-background: #181D22;
+$colors: (
+	primary: #1F83D5
+);
+$shadow: 5px 10px 15px 5px rgba(0,0,0,.1);
+
+*{
+	font-family: arial;
+}
+
+html,body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.main{
+	background: $main-background;
+}
+
+/* Flexed classes */
+.flexed{
+	display: flex;
+
+	&.flexed-column{
+		flex-direction: column;
+	}
+
+	&.flexed-reversed{
+		flex-direction: row-reverse;
+	}
+
+	.flexed-grow{
+		flex: 1;
+	}
+
+	.center{
+		margin: auto;
+	}
+}
+
+/* Card Classes */
+.card{
+	height: 400px;
+	width: 350px;
+	background: #FFF;
+	box-shadow: $shadow;
+}
+
+/* Button Classes */
+
+.btn{
+	border: none;
+	height: 24px;
+	width: 82px;
+	margin: 4px;
+	
+	&.primary{
+		background: map-get($colors, "primary");
+		color: #FFF;
+	}
+}
+
+/* Form style */
+form{
+	.input-container{
+		margin: 16px 0;
+		padding: 0 6px;
+
+		> input{
+			width: calc(100% - 20px);
+		}
+
+		&.input-floated{
+			position: relative;
+
+			> label{
+				transition: transform ease-out .1s;
+				position: absolute;
+				bottom: 6px;
+				left: 16px;
+			}
+
+			&.floated{
+				> label{
+					transform: translateY(-22px) scale(0.85);
+				}
+			}
+		}
+	}
+}
