@@ -1,8 +1,9 @@
-$main-background: #181D22;
+$main-background: #E8E8E8;
+$dark-background: #181D22;
 $colors: (
 	primary: #1F83D5
 );
-$shadow: 5px 10px 15px 5px rgba(0,0,0,.1);
+$shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
 
 *{
 	font-family: arial;
@@ -12,53 +13,6 @@ html,body{
 	margin: 0;
 	padding: 0;
 	height: 100%;
-}
-
-.main{
-	background: $main-background;
-}
-
-/* Flexed classes */
-.flexed{
-	display: flex;
-
-	&.flexed-column{
-		flex-direction: column;
-	}
-
-	&.flexed-reversed{
-		flex-direction: row-reverse;
-	}
-
-	.flexed-grow{
-		flex: 1;
-	}
-
-	.center{
-		margin: auto;
-	}
-}
-
-/* Card Classes */
-.card{
-	height: 400px;
-	width: 350px;
-	background: #FFF;
-	box-shadow: $shadow;
-}
-
-/* Button Classes */
-
-.btn{
-	border: none;
-	height: 24px;
-	width: 82px;
-	margin: 4px;
-	
-	&.primary{
-		background: map-get($colors, "primary");
-		color: #FFF;
-	}
 }
 
 /* Form style */
@@ -88,4 +42,81 @@ form{
 			}
 		}
 	}
+}
+
+.main-dark{
+	background: $dark-background;
+}
+
+.main{
+	background: $main-background;
+}
+
+/* Flexed classes */
+.flexed{
+	display: flex;
+
+	&.flexed-column{
+		flex-direction: column;
+	}
+
+	&.flexed-reversed{
+		flex-direction: row-reverse;
+	}
+
+	.flexed-grow{
+		flex: 1;
+	}
+
+	.center{
+		margin: auto;
+	}
+
+	&.flexed-wrap{
+		flex-wrap: wrap;
+		align-content: flex-start;
+	}
+}
+
+/* Card Classes */
+
+.card{
+	height: 280px;
+	width: 280px;
+	background: #FFF;
+	box-shadow: $shadow;
+	margin: 12px;
+	transition: box-shadow ease-in .3s;
+	
+	&.card-thin{
+		height: 400px;
+		width: 350px;
+	}
+
+	&.card-hover:hover{
+		box-shadow: 0 1px 10px 6px rgba(0,0,0,.3);
+	}
+}
+
+/* Button Classes */
+
+.btn{
+	border: none;
+	height: 24px;
+	width: 82px;
+	margin: 4px;
+	
+	&.primary{
+		background: map-get($colors, "primary");
+		color: #FFF;
+	}
+}
+
+.toolbar{
+	height: 60px;
+	width: 100%;
+	padding: 0 12px;
+	background: $dark-background;
+	box-sizing: border-box;
+	box-shadow: $shadow;
 }
