@@ -1,5 +1,6 @@
 * {
   font-family: arial;
+  color: #212121;
 }
 
 html, body {
@@ -54,12 +55,20 @@ form .input-container.input-floated.floated > label {
   flex-direction: row-reverse;
 }
 
-.flexed .flexed-grow {
+.flexed > .flexed-grow {
   flex: 1;
 }
 
-.flexed .center {
+.flexed > .center {
   margin: auto;
+}
+
+.flexed > .center-column {
+  margin: auto 0;
+}
+
+.flexed > .center-row {
+  margin: 0 auto;
 }
 
 .flexed.flexed-wrap {
@@ -69,7 +78,7 @@ form .input-container.input-floated.floated > label {
 
 /* Card Classes */
 .card {
-  height: 280px;
+  min-height: 280px;
   width: 280px;
   background: #FFF;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
@@ -86,17 +95,47 @@ form .input-container.input-floated.floated > label {
   box-shadow: 0 1px 10px 6px rgba(0, 0, 0, 0.3);
 }
 
+.card > .card-image img {
+  display: block;
+}
+
+.card > .card-content {
+  padding: 0 4px;
+}
+
+.card > .card-content > .card-body {
+  margin: 10px 0;
+}
+
+.card .card-title {
+  overflow: auto;
+  padding: 0 12px;
+}
+
+.card .card-title h3 {
+  margin: 12px 0;
+}
+
+.card .card-actions {
+  margin-top: 10px;
+  height: 40px;
+}
+
 /* Button Classes */
 .btn {
   border: none;
   height: 24px;
   width: 82px;
   margin: 4px;
+  color: #FFF;
 }
 
 .btn.primary {
   background: #1F83D5;
-  color: #FFF;
+}
+
+.btn.dark {
+  background: #0D1011;
 }
 
 .toolbar {

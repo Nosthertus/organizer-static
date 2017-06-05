@@ -1,12 +1,19 @@
 $main-background: #E8E8E8;
 $dark-background: #181D22;
 $colors: (
-	primary: #1F83D5
+	primary: #1F83D5,
+	dark: #0D1011
 );
+$text-colors: (
+	primary: #212121,
+	secondary: 757575
+);
+
 $shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
 
 *{
 	font-family: arial;
+	color: map-get($text-colors, "primary");
 }
 
 html,body{
@@ -64,12 +71,20 @@ form{
 		flex-direction: row-reverse;
 	}
 
-	.flexed-grow{
+	> .flexed-grow{
 		flex: 1;
 	}
 
-	.center{
+	> .center{
 		margin: auto;
+	}
+
+	> .center-column{
+		margin: auto 0;
+	}
+
+	> .center-row{
+		margin: 0 auto;
 	}
 
 	&.flexed-wrap{
@@ -81,7 +96,7 @@ form{
 /* Card Classes */
 
 .card{
-	height: 280px;
+	min-height: 280px;
 	width: 280px;
 	background: #FFF;
 	box-shadow: $shadow;
@@ -96,6 +111,34 @@ form{
 	&.card-hover:hover{
 		box-shadow: 0 1px 10px 6px rgba(0,0,0,.3);
 	}
+
+	> .card-image{
+		img{
+			display: block;
+		}
+	}
+
+	> .card-content{
+		padding: 0 4px;
+
+		> .card-body{
+			margin: 10px 0;
+		}
+	}
+
+	.card-title{
+		overflow: auto;
+		padding: 0 12px;
+
+		h3{
+			margin: 12px 0;
+		}
+	}
+
+	.card-actions{
+		margin-top: 10px;
+		height: 40px;
+	}
 }
 
 /* Button Classes */
@@ -105,10 +148,14 @@ form{
 	height: 24px;
 	width: 82px;
 	margin: 4px;
+	color: #FFF;
 	
 	&.primary{
 		background: map-get($colors, "primary");
-		color: #FFF;
+	}
+
+	&.dark{
+		background: map-get($colors, "dark");
 	}
 }
 
