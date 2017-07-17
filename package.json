@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/Nosthertus/organizer-static#readme",
   "dependencies": {
+    "debug": "^2.6.8",
+    "diet": "^0.16.0",
+    "diet-static-stream": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0"
   }

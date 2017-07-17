@@ -12,7 +12,7 @@ var options = {
 gulp.task("sass", function(){
 	return gulp.src("src/stylesheets/**/*.scss")
 		.pipe(sass(options.dev.sass).on("error", sass.logError))
-		.pipe(gulp.dest("./assets/stylesheets"));
+		.pipe(gulp.dest("./public/assets/stylesheets"));
 });
 
 gulp.task("sass:watch", function(){
