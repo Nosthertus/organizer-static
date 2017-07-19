@@ -1,12 +1,34 @@
 (function(){
+	var registerButton,
+		backButton,
+		loginForm,
+		registerForm;
+
 	window.addEventListener("DOMContentLoaded", function(){
 		formSubmission();
+
+		loginForm      = document.getElementById("login-form");
+		registerForm   = document.getElementById("register-form");
+		registerButton = document.getElementById("register-btn");
+		backButton     = document.getElementById("back-btn");
+
+		registerButton.onclick = () => {
+			switchForm("register")
+		};
+
+		backButton.onclick     = () => {
+			switchForm("login")
+		};
 	});
 
 	function formSubmission(){
-		var form = document.getElementById("login-form");
+		let forms = document.forms;
 
-		form.addEventListener("submit", submit);
+		for(i = 0; i < forms.length; i++){
+			let form = forms.item(i);
+
+			form.addEventListener("submit", submit);
+		}
 	}
 
 	function submit(evt){
@@ -32,5 +54,17 @@
 		}
 
 		return formData;
+	}
+
+	function switchForm(formName){
+		if(formName == "login"){
+			registerForm.classList.add("hidden");
+			loginForm.classList.remove("hidden");
+		}
+
+		else{
+			loginForm.classList.add("hidden");
+			registerForm.classList.remove("hidden");
+		}
 	}
 })();
