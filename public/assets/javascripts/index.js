@@ -1,4 +1,7 @@
 (function(){
+	// Change this when host address is different
+	var $hostAPI = "http://0.0.0.0";
+
 	var registerButton,
 		backButton,
 		loginForm,
@@ -21,6 +24,9 @@
 		};
 	});
 
+	/**
+	 * Sets the submission event to all forms
+	 */
 	function formSubmission(){
 		let forms = document.forms;
 
@@ -31,15 +37,37 @@
 		}
 	}
 
+	/**
+	 * Gathers the data of the form as plain object
+	 * $this should send data to the host
+	 * 
+	 * @param  {Event} evt The event object of the submission
+	 */
 	function submit(evt){
-		var data = getFormData(evt.target, true);
-
-		console.log(data);
+		let data = getFormData(evt.target, true);
+		let uri  = evt.target.id == "login-form" ? "authenticate" : "register";
 
 		// Cancel default submission
 		evt.preventDefault();
+
+		if(uri == "register" && data.password != data.repassword){
+			alert("Passwords do not match");
+
+			return;
+		}
+
+		// Send data to the server
+		send(data, uri);
 	}
 
+	/**
+	 * Parses the data of the @form name
+	 * this returns a plain object if @obj is true, otherwise is FormData
+	 * 
+	 * @param  {Element}         form The form element to extract the data
+	 * @param  {Boolean}         obj  Whether the data should be returned as plain object
+	 * @return {Object|FormData}      The data extracted from the form
+	 */
 	function getFormData(form, obj = false){
 		var formData = new FormData(form);
 
@@ -56,6 +84,11 @@
 		return formData;
 	}
 
+	/**
+	 * Switches the displayed form between login and register
+	 * 
+	 * @param  {String} formName The name of the form to transition to
+	 */
 	function switchForm(formName){
 		if(formName == "login"){
 			registerForm.classList.add("hidden");
@@ -66,5 +99,22 @@
 			loginForm.classList.add("hidden");
 			registerForm.classList.remove("hidden");
 		}
+	}
+
+	function send(data, uri){
+		return new Promise((resolve, reject) => {
+			var http = new XMLHttpRequest();
+
+			http.responseType = "json";
+
+			http.open("POST", `${$hostAPI}/${uri}`);
+			http.setRequestHeader("Content-Type", "application/json");
+		
+			http.onload = function(){
+				console.log(this);
+			};
+
+			http.send(JSON.stringify(data));
+		});
 	}
 })();
