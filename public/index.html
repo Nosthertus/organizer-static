@@ -11,15 +11,15 @@
 	<script src="assets/javascripts/libs/zone.js/dist/zone.js"></script>
 	<script src="assets/javascripts/libs/systemjs/dist/system.src.js"></script>
 
-	<script src="assets/javascripts/system.config.js"></script>
+	<script src="assets/javascripts/systemjs.config.js"></script>
 
 	<script>
-		System.import("main.js").catch(err => {
+		System.import("assets/javascripts/main.js").catch(err => {
 			console.error(err);
 		});
 	</script>
 </head>
 <body>
-	
+	<app>Loading</app>
 </body>
 </html>
