@@ -59,3 +59,6 @@ typings/
 
 #sass compilation cache
 .sass-cache
+
+#workflow build packages
+public/assets/javascripts/libs

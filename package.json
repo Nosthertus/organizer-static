@@ -18,10 +18,27 @@
   },
   "homepage": "https://github.com/Nosthertus/organizer-static#readme",
   "dependencies": {
-    "debug": "^2.6.8",
     "diet": "^0.16.0",
     "diet-static-stream": "^1.2.0",
+    "@angular/common": "~4.0.0",
+    "@angular/compiler": "~4.0.0",
+    "@angular/core": "~4.0.0",
+    "@angular/forms": "~4.0.0",
+    "@angular/http": "~4.0.0",
+    "@angular/platform-browser": "~4.0.0",
+    "@angular/platform-browser-dynamic": "~4.0.0",
+    "@angular/router": "~4.0.0",
+
+    "systemjs": "0.19.40",
+    "core-js": "^2.4.1",
+    "rxjs": "5.0.1",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
+    "debug": "^2.6.8",
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^3.1.0",
+    "gulp-typescript": "^3.2.1",
+    "typescript": "^2.4.2"
   }
 }

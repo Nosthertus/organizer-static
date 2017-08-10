@@ -1,60 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Organizer - Login</title>
+	<title>Organizer - static</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width", initial-scale=1>
 
-	<meta charset="utf-8">
+	<!-- Polyfills for older browsers -->
+	<script src="assets/javascripts/libs/core-js/client/shim.min.js"></script>
+	
+	<script src="assets/javascripts/libs/zone.js/dist/zone.js"></script>
+	<script src="assets/javascripts/libs/systemjs/dist/system.src.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="assets/stylesheets/main.css">
+	<script src="assets/javascripts/system.config.js"></script>
+
+	<script>
+		System.import("main.js").catch(err => {
+			console.error(err);
+		});
+	</script>
 </head>
-<body class="main-dark flexed flexed-column">
-	<div id="login-container" class="center card card-thin">
-		<form id="login-form" class="flexed flexed-column">
-			<div class="input-container input-floated">
-				<label for="input-username">Username</label>
-				<input type="text" id="input-username" name="name" required="">
-			</div>
-
-			<div class="input-container input-floated">
-				<label for="input-password">Password</label>
-				<input type="password" id="input-password" name="password" required="">
-			</div>
-
-			<div class="input-container flexed flexed-reversed">
-				<button id="register-btn" class="btn primary" type="button">Register</button>
-				<button class="btn primary">Submit</button>
-			</div>
-		</form>
-
-		<form id="register-form" class="flexed flexed-column hidden">
-			<div class="input-container input-floated">
-				<label for="input-username">Username</label>
-				<input type="text" id="input-username" name="name" required="">
-			</div>
-
-			<div class="input-container input-floated">
-				<label for="input-email">Email</label>
-				<input type="text" id="input-email" name="email" required="">
-			</div>
-
-			<div class="input-container input-floated">
-				<label for="input-password">Password</label>
-				<input type="password" id="input-password" name="password" required="">
-			</div>
-
-			<div class="input-container input-floated">
-				<label for="input-repassword">Repeat Password</label>
-				<input type="password" id="input-repassword" name="repassword" required="">
-			</div>
-
-			<div class="input-container flexed flexed-reversed">
-				<button id="back-btn" class="btn primary" type="button">Back</button>
-				<button class="btn primary">Submit</button>
-			</div>
-		</form>
-	</div>
-
-	<script src="assets/javascripts/main.js"></script>
-	<script src="assets/javascripts/index.js"></script>
+<body>
+	
 </body>
 </html>
