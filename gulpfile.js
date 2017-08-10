@@ -1,6 +1,7 @@
-var gulp = require("gulp");
-var sass = require("gulp-sass");
-var ts   = require("gulp-typescript");
+var gulp   = require("gulp");
+var sass   = require("gulp-sass");
+var ts     = require("gulp-typescript");
+var tslint = require("gulp-tslint");
 
 var options = {
 	dev: {
@@ -30,6 +31,16 @@ gulp.task("scripts", function(){
 		.pipe(tsProject());
 		
 	return tsResult.js.pipe(gulp.dest("./public/assets/javascripts"));
+});
+
+/**
+ * Watchs for all typescripts files and compile when any change is detected
+ */
+gulp.task("scripts:watch", function(){
+	gulp.watch("src/typescript/**/*.ts", ["scripts"])
+		.on("change", function(event){
+			console.log(`File ${event.path} was ${event.type}, compiling...`);
+		});
 });
 
 /**
