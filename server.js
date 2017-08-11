@@ -8,5 +8,6 @@ server.listen(8080, null, function(){
 });
 
 server.footer(dietStream({
-	path: "public"
+	path: "public",
+	cache: "no-cache"
 }));

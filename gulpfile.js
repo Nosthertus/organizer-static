@@ -1,12 +1,14 @@
 var gulp   = require("gulp");
 var sass   = require("gulp-sass");
 var ts     = require("gulp-typescript");
-var tslint = require("gulp-tslint");
 
 var options = {
 	dev: {
 		sass: {
 			outputStyle: "expanded"
+		},
+		typescript: {
+			configFile: "tsconfig.json"
 		}
 	}
 };
@@ -25,7 +27,7 @@ gulp.task("sass:watch", function(){
  * Compile all typescript files into public directory
  */
 gulp.task("scripts", function(){
-	var tsProject = ts.createProject("tsconfig.json");
+	var tsProject = ts.createProject(options.dev.typescript.configFile);
 
 	var tsResult = gulp.src("src/typescript/**/*.ts")
 		.pipe(tsProject());
@@ -64,4 +66,21 @@ gulp.task("libraries", function(){
 		"core-js/client/shim.min.js"
 	], {cwd: "node_modules/**"})
 	.pipe(gulp.dest("./public/assets/javascripts/libs"));
+});
+
+gulp.task("development", ["libraries"], function(){
+	gulp.watch("src/typescript/**/*.ts", ["scripts"])
+		.on("change", function(event){
+			console.log(`File ${event.path} was ${event.type}, compiling...`);
+		});
+
+	gulp.watch("src/stylesheets/**/*.scss", ["sass"])
+		.on("change", function(event){
+			console.log(`File ${event.path} was ${event.type}, compiling...`);
+		});
+
+	gulp.watch(["src/**/*", "!src/typescript/**/*.ts", "!src/stylesheets/**/*.scss"], ["resources"])
+		.on("change", function(event){
+			console.log(`File ${event.path} was ${event.type}, copying to public...`);
+		});
 });
